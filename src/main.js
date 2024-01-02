@@ -1,4 +1,4 @@
-import './assets/main.css'
+// import './assets/main.css'  原本的css和现有的css冲突
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
