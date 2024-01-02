@@ -8,7 +8,8 @@ import router from './router'
 // import { getCategoryAPI } from './apis/testAPI'
 
 import '@/styles/common.scss'
-
+// 定义懒加载插件
+import { useIntersectionObserver } from '@vueuse/core'
 
 
 // 测试接口函数
@@ -24,3 +25,22 @@ app.use(createPinia())
 app.use(router)
 
 app.mount('#app')
+
+
+//定义全局指令
+app.directive('img-lazy', {
+    mounted (el, binding) {
+        console.log(el, binding);
+        const { stop } = useIntersectionObserver(
+            el,
+            ([{ isIntersecting }]) => {
+                // console.log(isIntersecting)
+                if (isIntersecting) {
+                    // 进入视口区域
+                    el.src = binding.value
+                    stop()
+                }
+            },
+        )
+    }
+})
