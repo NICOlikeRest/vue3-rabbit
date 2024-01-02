@@ -36,3 +36,15 @@ export const getHotAPI = () => {
     })
 }
 // return httpInstance('home/hot', 'get', {})
+
+
+/**
+ * @description: 获取所有商品模块
+ * @param {*}
+ * @return {*}
+ */
+export const getGoodsAPI = () => {
+    return httpInstance({
+        url: '/home/goods'
+    })
+}
