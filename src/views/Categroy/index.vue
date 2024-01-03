@@ -4,13 +4,14 @@ import { useRoute } from 'vue-router';
 import { ref , onMounted } from 'vue';
 import { getBannerAPI } from '@/apis/home'
 import GoodsItem from '../Home/components/GoodsItem.vue'
+import { onBeforeRouteUpdate } from 'vue-router';
 
 const categoryData = ref({})
 
 const route = useRoute()
 
-const getCategory = async () => {
-  const res = await getCategoryAPI(route.params.id)
+const getCategory = async (id = route.params.id) => {
+  const res = await getCategoryAPI(id)
   categoryData.value = res.result
 }
 
@@ -27,6 +28,16 @@ const getBanner = async () => {
 onMounted(() => getBanner())
 
 onMounted(() => getCategory())
+
+
+
+//分类页面重新渲染
+onBeforeRouteUpdate((to)=>{
+  // console.log(111);
+  getCategory(to.params.id)
+})
+
+
 
 </script>
 
