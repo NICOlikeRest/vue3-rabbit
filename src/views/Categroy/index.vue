@@ -29,7 +29,7 @@ const { categoryData } = useCategory()
           <el-breadcrumb-item :to="{ path: '/' }">
             首页
           </el-breadcrumb-item>
-          <el-breadcrumb-item>居家</el-breadcrumb-item>
+          <el-breadcrumb-item>{{ categoryData.name }}</el-breadcrumb-item>
         </el-breadcrumb>
       </div>
       <!-- 轮播图 -->
