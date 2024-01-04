@@ -1,4 +1,4 @@
-import { defineStore } from "pinia";
+import { defineStore } from 'pinia'
 import { ref } from "vue";
 import { loginAPI } from "@/apis/user";
 
@@ -18,9 +18,6 @@ export const useUserStore = defineStore('user', () => {
         getUserInfo,
         clearUserInfo
     }
-},
-{
-    persist: {
-        enabled: true
-    }
+}, {
+    persist: true,
 })
